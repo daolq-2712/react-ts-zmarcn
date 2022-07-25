@@ -18,14 +18,17 @@ export default function App() {
     event.target.reset();
   };
 
-  const handleOnChange = (event) => {
+  const handleTexInputChange = (event) => {
     value.current = event.target.value;
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Input placeHolder="Type your todo" handleChange={handleOnChange} />
+        <Input
+          placeHolder="Type your todo"
+          handleChange={handleTexInputChange}
+        />
         <Button type="submit">Submit</Button>
       </form>
       <div>
