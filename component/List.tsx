@@ -4,9 +4,9 @@ import { Item } from './ItemTodo';
 export function List({ items }) {
   return (
     <ul>
-      {items.map((item, index) => {
-        <Item key={index} item={item} />;
-      })}
+      {items.map((item, index) => (
+        <Item key={index} item={item} />
+      ))}
     </ul>
   );
 }

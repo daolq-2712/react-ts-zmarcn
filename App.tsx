@@ -13,6 +13,9 @@ export default function App() {
 
     const newTodos = [...todos, value.current];
     setTodos(newTodos);
+
+    // clear all input values in the form
+    event.target.reset();
   };
 
   const handleOnChange = (event) => {
