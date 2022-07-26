@@ -17,8 +17,6 @@ export default function App() {
 
     const newTodos = [...todos, value];
     setTodos(newTodos);
-
-    setvalue('');
   };
 
   const handleReset = () => {
