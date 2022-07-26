@@ -6,6 +6,7 @@ export function Input(props) {
       type={props.type}
       placeholder={props.placeHolder}
       onChange={props.onChange}
+      value={props.value}
     />
   );
 }

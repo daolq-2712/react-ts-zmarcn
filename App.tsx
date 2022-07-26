@@ -17,6 +17,8 @@ export default function App() {
 
     const newTodos = [...todos, value];
     setTodos(newTodos);
+
+    setvalue('');
   };
 
   const handleReset = () => {
@@ -32,7 +34,11 @@ export default function App() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Input placeHolder="Type your todo" onChange={handleTexInputChange} />
+        <Input
+          placeHolder="Type your todo"
+          onChange={handleTexInputChange}
+          value={value}
+        />
         <Button type="submit" name="Submit" onClick={handleSubmit} />
         <Button type="reset" name="Reset" onClick={handleReset} />
       </form>
