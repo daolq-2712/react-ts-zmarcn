@@ -1,5 +1,10 @@
 import * as React from 'react';
+import { Button } from './Button';
 
-export function Item({ item }) {  
-  return <li>{item}</li>;
+export function Item(pros) {
+  return (
+    <div>
+      <li>{pros.item} <Button name = "Delete" onClick = {pros.onClick}/></li>
+    </div>
+  );
 }

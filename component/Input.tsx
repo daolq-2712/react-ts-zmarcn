@@ -1,7 +1,11 @@
 import * as React from 'react';
 
-export function Input({ handleChange, type = 'text', placeHolder }) {
+export function Input(props) {
   return (
-    <input type={type} placeholder={placeHolder} onChange={handleChange} />
+    <input
+      type={props.type}
+      placeholder={props.placeHolder}
+      onChange={props.onChange}
+    />
   );
 }
