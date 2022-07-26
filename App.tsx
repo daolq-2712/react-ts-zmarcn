@@ -6,29 +6,29 @@ import { List } from './component/List';
 
 export default function App() {
   const [todos, setTodos] = React.useState([]);
-  const value = React.useRef('');
+  const [value, setvalue] = React.useState('');
 
   const handleTexInputChange = (event) => {
-    value.current = event.target.value;
+    setvalue(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newTodos = [...todos, value.current];
+    const newTodos = [...todos, value];
     setTodos(newTodos);
 
-    value.current = '';
+    setvalue('');
   };
 
   const handleReset = () => {
-    value.current = '';
+    setvalue('');
   };
 
   const handleItemDelete = (index) => {
-    // const newTodos = todos.filter((_, itemIndex) => itemIndex !== index);
+    const newTodos = todos.filter((_, itemIndex) => itemIndex !== index);
 
-    // setTodos(newTodos);
+    setTodos(newTodos);
   };
 
   return (
@@ -39,7 +39,7 @@ export default function App() {
         <Button type="reset" name="Reset" onClick={handleReset} />
       </form>
       <div>
-        <List items={todos} onItemClick={handleItemDelete}/>
+        <List items={todos} onItemClick={handleItemDelete} />
       </div>
     </div>
   );
