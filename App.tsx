@@ -37,7 +37,7 @@ export default function App() {
         <Button type="reset" name="Reset" onClick={handleReset} />
       </form>
       <div>
-        <List items={todos} onItemClick={handleItemDelete} />
+        <List items={todos} onItemClick={(index) => handleItemDelete(index)} />
       </div>
     </div>
   );
