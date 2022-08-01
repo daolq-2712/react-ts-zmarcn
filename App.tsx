@@ -36,19 +36,17 @@ export default function App() {
   };
 
   const handleTexInputSearchChange = (event) => {
-    value.current = event.target.value;
+    valueSearch.current = event.target.value;
   };
 
   const handleSubmitSearch = (event) => {
     event.preventDefault();
 
-    if (value.current == '') {
+    if (valueSearch.current == '') {
       return;
     }
 
-    console.log(todos);
     const newTodos = todos.filter((item) => item.includes(valueSearch.current));
-
     setTodoResults(newTodos);
 
     valueSearch.current = '';
