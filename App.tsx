@@ -100,7 +100,7 @@ export default function App() {
 
         <h3 hidden={todoResults.length == 0}>List Result</h3>
         <div>
-          <List items={todoResults} />
+          <List items={todoResults} hidden={true} />
         </div>
       </div>
     </div>
