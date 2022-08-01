@@ -6,23 +6,24 @@ import { List } from './component/List';
 
 export default function App() {
   const [todos, setTodos] = React.useState([]);
-  const [value, setvalue] = React.useState('');
+  const value = React.useRef(null);
 
   const handleTexInputChange = (event) => {
-    setvalue(event.target.value);
+    value.current = event.target.value;
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newTodos = [...todos, value];
+    const newTodos = [...todos, value.current];
     setTodos(newTodos);
 
-    setvalue('');
+    value.current = '';
+    event.target.reset();
   };
 
   const handleReset = () => {
-    setvalue('');
+    value.current = '';
   };
 
   const handleItemDelete = (index) => {
@@ -36,8 +37,8 @@ export default function App() {
       <form onSubmit={handleSubmit}>
         <Input
           placeHolder="Type your todo"
+          ref={value}
           onChange={handleTexInputChange}
-          value={value}
         />
         <Button type="submit" name="Submit" onClick={handleSubmit} />
         <Button type="reset" name="Reset" onClick={handleReset} />
