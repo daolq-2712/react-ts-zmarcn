@@ -56,8 +56,14 @@ export default function App() {
     setTodoResults(newTodos);
   };
 
-  // Item
-  const handleItemDeleteItem = (index) => {
+  // Items
+  const handleUpdateItem = (index) => {
+    const updateTodo = todos.filter((_, itemIndex) => itemIndex == index);
+
+    console.log(updateTodo);
+  };
+
+  const handleDeleteItem = (index) => {
     const newTodos = todos.filter((_, itemIndex) => itemIndex !== index);
 
     setTodos(newTodos);
@@ -81,7 +87,8 @@ export default function App() {
         <div>
           <List
             items={todos}
-            onItemClick={(index) => handleItemDeleteItem(index)}
+            onItemUpdate={(index) => handleUpdateItem(index)}
+            onItemDelete={(index) => handleDeleteItem(index)}
           />
         </div>
 

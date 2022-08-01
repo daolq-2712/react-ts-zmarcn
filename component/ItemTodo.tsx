@@ -5,7 +5,8 @@ export function Item(pros) {
   return (
     <div>
       <li>
-        {pros.item} <Button name="Delete" onClick={pros.onClick} />
+        {pros.item} <Button name="Update" onClick={pros.onClickUpdate} />
+        <Button name="Delete" onClick={pros.onClickDelete} />
       </li>
     </div>
   );

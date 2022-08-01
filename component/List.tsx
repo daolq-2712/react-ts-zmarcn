@@ -5,7 +5,12 @@ export function List(pros) {
   return (
     <ul>
       {pros.items.map((item, index) => (
-        <Item key={index} item={item} onClick={() => pros.onItemClick(index)} />
+        <Item
+          key={index}
+          item={item}
+          onClickUpdate={() => pros.onItemUpdate(index)}
+          onClickDelete={() => pros.onItemDelete(index)}
+        />
       ))}
     </ul>
   );
