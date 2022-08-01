@@ -51,7 +51,6 @@ export default function App() {
       return;
     }
 
-    console.log(todos);
     const newTodos = todos.filter((item) => item.includes(valueSearch.current));
     setTodoResults(newTodos);
   };
@@ -59,7 +58,7 @@ export default function App() {
   // Items
   const handleUpdateItem = (index) => {
     const updateTodo = todos.filter((_, itemIndex) => itemIndex == index);
-
+    // TODO implement later
     console.log(updateTodo);
   };
 
