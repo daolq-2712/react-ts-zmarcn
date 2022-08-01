@@ -35,6 +35,11 @@ export default function App() {
     value.current = '';
   };
 
+  const handleSearchReset = () => {
+    valueSearch.current = '';
+    setTodoResults([]);
+  };
+
   const handleTexInputSearchChange = (event) => {
     valueSearch.current = event.target.value;
   };
@@ -46,11 +51,9 @@ export default function App() {
       return;
     }
 
+    console.log(todos);
     const newTodos = todos.filter((item) => item.includes(valueSearch.current));
     setTodoResults(newTodos);
-
-    valueSearch.current = '';
-    event.target.reset();
   };
 
   // Item
@@ -72,33 +75,33 @@ export default function App() {
         <Button type="submit" name="Submit" />
         <Button type="reset" name="Reset" onClick={handleReset} />
       </form>
-      <h3>List Todo</h3>
+      <div hidden={todos.length == 0}>
+        <h3>List Todo</h3>
 
-      <div>
-        <List
-          items={todos}
-          onItemClick={(index) => handleItemDeleteItem(index)}
-        />
-      </div>
+        <div>
+          <List
+            items={todos}
+            onItemClick={(index) => handleItemDeleteItem(index)}
+          />
+        </div>
 
-      <hr></hr>
+        <hr></hr>
 
-      <form onSubmit={handleSubmitSearch}>
-        <Input
-          ref={valueSearch}
-          type="search"
-          onChange={handleTexInputSearchChange}
-          placeholder={`Search`}
-        />
-        <Button type="submit" name="Search" />
-      </form>
+        <form onSubmit={handleSubmitSearch}>
+          <Input
+            ref={valueSearch}
+            type="search"
+            onChange={handleTexInputSearchChange}
+            placeholder={`Search`}
+          />
+          <Button type="submit" name="Search" />
+          <Button type="reset" name="Reset" onClick={handleSearchReset} />
+        </form>
 
-      <h3>List Result</h3>
-      <div>
-        <List
-          items={todoResults}
-          onItemClick={(index) => handleItemDeleteItem(index)}
-        />
+        <h3 hidden={todoResults.length == 0}>List Result</h3>
+        <div>
+          <List items={todoResults} />
+        </div>
       </div>
     </div>
   );
