@@ -15,11 +15,15 @@ export default function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (value.current == '') {
+      return;
+    }
+
     const newTodos = [...todos, value.current];
     setTodos(newTodos);
 
     value.current = '';
-    event.target.reset();
+    // event.target.reset();
   };
 
   const handleReset = () => {
@@ -38,6 +42,7 @@ export default function App() {
         <Input
           placeHolder="Type your todo"
           ref={value}
+          type="text"
           onChange={handleTexInputChange}
         />
         <Button type="submit" name="Submit" onClick={handleSubmit} />
